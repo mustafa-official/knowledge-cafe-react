@@ -12,10 +12,15 @@ function App() {
   };
 
   let [time, setTime] = useState(0);
-  const handleTime = (getTime) => {
+  const handleTime = (getTime, id) => {
     time = time + getTime;
     setTime(time);
+    //remove mark as read
+    // console.log("remove", id);
+    const remaining = bookmark.filter((data) => data.id !== id);
+    setBookmark(remaining);
   };
+
   return (
     <>
       <Header></Header>
